@@ -1,2 +1,4 @@
 scrap/
 secrets/
+venv/
+__pycache__/
