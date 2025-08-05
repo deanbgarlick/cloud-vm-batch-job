@@ -20,3 +20,9 @@ class VMConfig:
     auto_shutdown: bool = True
     # New field for ML pipeline mode
     example_custom_param: str = "single"  # "single", "suite", or "dispatcher"
+    
+    # Network configuration
+    network_name: str = os.getenv("NETWORK_NAME", "vm-runner-network")
+    subnet_name: str = os.getenv("SUBNET_NAME", "vm-runner-subnet")
+    region: str = os.getenv("REGION", "us-central1")
+    subnet_range: str = os.getenv("SUBNET_RANGE", "10.0.0.0/24")

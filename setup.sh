@@ -32,26 +32,30 @@ PROJECT_ID=${GCLOUD_PROJECT_ID:-"your-project-id"}
 # ./master_shell_scripts/setup/setup_vm_runner_artifact_bucket.sh
 # echo ""
 
-# Update artifact and logbucket name in test-run-script.sh
-cp vm_shell_scripts/templates/template-test-run-script.sh vm_shell_scripts/test-run-script.sh
-echo "4️⃣ Updating artifact bucket name in test-run-script.sh..."
-# Replace the bucket names in the test script
-TMP_FILE=$(mktemp)
-cat vm_shell_scripts/test-run-script.sh | \
-  sed "s|your-vm-artifact-bucket|$VM_RUNNER_ARTIFACT_BUCKET_NAME|g" | \
-  sed "s|your-vm-log-bucket|$VM_RUNNER_LOGS_BUCKET_NAME|g" > "$TMP_FILE"
-mv "$TMP_FILE" vm_shell_scripts/test-run-script.sh
-chmod +x vm_shell_scripts/test-run-script.sh
-echo ""
+# # Update artifact and logbucket name in test-run-script.sh
+# cp vm_shell_scripts/templates/template-test-run-script.sh vm_shell_scripts/test-run-script.sh
+# echo "5 Updating artifact bucket name in test-run-script.sh..."
+# # Replace the bucket names in the test script
+# TMP_FILE=$(mktemp)
+# cat vm_shell_scripts/test-run-script.sh | \
+#   sed "s|your-vm-artifact-bucket|$VM_RUNNER_ARTIFACT_BUCKET_NAME|g" | \
+#   sed "s|your-vm-log-bucket|$VM_RUNNER_LOGS_BUCKET_NAME|g" > "$TMP_FILE"
+# mv "$TMP_FILE" vm_shell_scripts/test-run-script.sh
+# chmod +x vm_shell_scripts/test-run-script.sh
+# echo ""
 
-# Update artifact and logbucket name in main-run-script.sh
-cp vm_shell_scripts/templates/template-main-run-script.sh vm_shell_scripts/main-run-script.sh
-echo "4️⃣ Updating artifact bucket name in main-run-script.sh..."
-# Replace the bucket names in the run main script
-TMP_FILE=$(mktemp)
-cat vm_shell_scripts/main-run-script.sh | \
-  sed "s|your-vm-artifact-bucket|$VM_RUNNER_ARTIFACT_BUCKET_NAME|g" | \
-  sed "s|your-vm-log-bucket|$VM_RUNNER_LOGS_BUCKET_NAME|g" > "$TMP_FILE"
-mv "$TMP_FILE" vm_shell_scripts/main-run-script.sh
-chmod +x vm_shell_scripts/main-run-script.sh
+# # Update artifact and logbucket name in main-run-script.sh
+# cp vm_shell_scripts/templates/template-main-run-script.sh vm_shell_scripts/main-run-script.sh
+# echo "6 Updating artifact bucket name in main-run-script.sh..."
+# # Replace the bucket names in the run main script
+# TMP_FILE=$(mktemp)
+# cat vm_shell_scripts/main-run-script.sh | \
+#   sed "s|your-vm-artifact-bucket|$VM_RUNNER_ARTIFACT_BUCKET_NAME|g" | \
+#   sed "s|your-vm-log-bucket|$VM_RUNNER_LOGS_BUCKET_NAME|g" > "$TMP_FILE"
+# mv "$TMP_FILE" vm_shell_scripts/main-run-script.sh
+# chmod +x vm_shell_scripts/main-run-script.sh
+# echo ""
+
+echo "7 Setting up VM Runner Network..."
+./master_shell_scripts/setup/setup_network.sh
 echo ""

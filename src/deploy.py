@@ -59,7 +59,8 @@ class Deployer:
                 }
             }],
             "network_interfaces": [{
-                "network": f"projects/{self.config.project_id}/global/networks/default"
+                "network": f"projects/{self.config.project_id}/global/networks/{self.config.network_name}",
+                "subnetwork": f"projects/{self.config.project_id}/regions/{self.config.region}/subnetworks/{self.config.subnet_name}"
             }],
             "metadata": {
                 "items": [
