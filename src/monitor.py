@@ -1,8 +1,7 @@
 import subprocess
 import time
 from src.vm_config import VMConfig
-
-from src.compute_client import get_compute_client
+from google.cloud import compute_v1
 
 
 def get_logs(name: str, zone: str) -> str:
@@ -14,11 +13,11 @@ def get_logs(name: str, zone: str) -> str:
     return result.stdout
 
 
-def monitor_vm(project_id: str, zone: str, name: str):
+def monitor_vm(project_id: str, zone: str, name: str, compute_client: compute_v1.InstancesClient):
     """Monitor VM until completion"""
     while True:
         try:
-            instance = get_compute_client().get(
+            instance = compute_client.get(
                 project=project_id,
                 zone=zone,
                 instance=name

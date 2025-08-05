@@ -5,6 +5,7 @@ import sys
 from src.vm_config import VMConfig
 from src.deploy import Deployer
 from src.monitor import get_logs, monitor_vm, stream_logs
+from src.compute_client import get_compute_client
 
 def main():
     
@@ -29,7 +30,7 @@ def main():
         example_custom_param=args.example_custom_param
     )
     
-    deployer = Deployer(config)
+    deployer = Deployer(config, get_compute_client())
     
     if args.action == 'deploy':
         vm_name = deployer.deploy_vm(args.name)
@@ -54,7 +55,7 @@ def main():
         if not args.name:
             print("--name required for monitor")
             sys.exit(1)
-        monitor_vm(config.project_id, config.zone, args.name)
+        monitor_vm(config.project_id, config.zone, args.name, get_compute_client())
         
     elif args.action == 'stream':
         if not args.name:

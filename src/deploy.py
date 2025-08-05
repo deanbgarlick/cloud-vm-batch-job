@@ -7,16 +7,15 @@ import time
 from typing import Optional
 from google.cloud import compute_v1
 from src.vm_config import VMConfig
-from src.compute_client import get_compute_client
 
 dotenv.load_dotenv()
 
 
 class Deployer:
     
-    def __init__(self, config: VMConfig):
+    def __init__(self, config: VMConfig, compute_client: compute_v1.InstancesClient):
         self.config = config
-        self.compute_client = get_compute_client()
+        self.compute_client = compute_client
         
     def deploy_vm(self, vm_name: Optional[str] = None) -> str:
         """Deploy VM and return instance name"""
