@@ -7,14 +7,16 @@ import time
 from typing import Optional
 from google.cloud import compute_v1
 from src.vm_config import VMConfig
+from src.compute_client import get_compute_client
 
 dotenv.load_dotenv()
 
 
 class Deployer:
+    
     def __init__(self, config: VMConfig):
         self.config = config
-        self.compute_client = compute_v1.InstancesClient()
+        self.compute_client = get_compute_client()
         
     def deploy_vm(self, vm_name: Optional[str] = None) -> str:
         """Deploy VM and return instance name"""
@@ -22,7 +24,7 @@ class Deployer:
         if not vm_name:
             vm_name = f"vm-runner-{self.config.example_custom_param}-{int(time.time())}"
             
-        instance_config = self._create_instance_config(vm_name, self.config)
+        instance_config = self._create_instance_config(vm_name)
         self._create_instance(instance_config)
         self._log_success(vm_name)
 
@@ -37,7 +39,7 @@ class Deployer:
         )
         return
 
-    def _create_instance_config(self, vm_name: str, config: VMConfig) -> compute_v1.Instance:
+    def _create_instance_config(self, vm_name: str) -> compute_v1.Instance:
         # Configure instance
 
         # Read startup script
