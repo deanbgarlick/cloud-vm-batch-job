@@ -15,9 +15,9 @@ def main():
     parser.add_argument('--service-account', default=None, help='Service account email (default: uses environment ML_SERVICE_ACCOUNT or VM default)')
     parser.add_argument('--no-preemptible', action='store_true', help='Disable preemptible instances (default: False)')
     parser.add_argument('--no-auto-shutdown', action='store_true', help='Disable auto-shutdown (default: False)')
-    # New argument for ML pipeline mode
-    parser.add_argument('--ml-mode', choices=['single', 'suite', 'dispatcher'], default='single', 
-                       help='ML pipeline mode: single experiment, experiment suite, or dispatcher (default: single)')
+    # New argument for example custom param
+    parser.add_argument('--example-custom-param', choices=['foo', 'bar'], default='foo', 
+                       help='Example custom param: foo, bar (default: foo)')
     
     args = parser.parse_args()
     
@@ -39,9 +39,8 @@ def main():
 
         # Show mode-specific usage examples
         # print("\n🚀 Deployment Examples:")
-        # print("  Single experiment:    python deploy.py --ml-mode single")
-        # print("  Experiment suite:     python deploy.py --ml-mode suite") 
-        # print("  Dispatcher (default): python deploy.py --ml-mode dispatcher")
+        # print("  Single experiment:    python deploy.py --example-custom-param foo")
+        # print("  Experiment suite:     python deploy.py --example-custom-param bar") 
         
     elif args.action == 'logs':
         if not args.name:
