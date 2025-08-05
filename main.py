@@ -35,14 +35,14 @@ def main():
     
     if args.action == 'deploy':
         vm_name = deployer.deploy_vm(args.name)
-        print(f"Stream logs with: python deploy.py --action stream --name {vm_name}")
-        print(f"Monitor with: python deploy.py --action monitor --name {vm_name}")
-        print(f"Get logs with: python deploy.py --action logs --name {vm_name}")
+        print(f"Stream logs with: python -m main --action stream --name {vm_name}")
+        print(f"Monitor with: python -m main --action monitor --name {vm_name}")
+        print(f"Get logs with: python -m main --action logs --name {vm_name}")
 
         # Show mode-specific usage examples
         # print("\n🚀 Deployment Examples:")
-        # print("  Single experiment:    python deploy.py --example-custom-param foo")
-        # print("  Experiment suite:     python deploy.py --example-custom-param bar") 
+        # print("  Single experiment:    python -m main --example-custom-param foo")
+        # print("  Experiment suite:     python -m main --example-custom-param bar") 
         
     elif args.action == 'logs':
         if not args.name:
