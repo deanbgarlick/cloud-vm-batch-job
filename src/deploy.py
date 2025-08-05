@@ -54,8 +54,8 @@ class Deployer:
                 "boot": True,
                 "auto_delete": True,
                 "initialize_params": {
-                    "source_image": "projects/ubuntu-os-cloud/global/images/family/ubuntu-2204-lts",
-                    "disk_size_gb": 50,
+                    "source_image": self.config.source_image,
+                    "disk_size_gb": self.config.disk_size_gb,
                     "disk_type": f"zones/{self.config.zone}/diskTypes/pd-ssd"
                 }
             }],
