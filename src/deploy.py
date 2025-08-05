@@ -42,7 +42,7 @@ class Deployer:
         # Configure instance
 
         # Read startup script
-        with open('startup-script-local.sh', 'r') as f:
+        with open(self.config.run_script, 'r') as f:
             startup_script = f.read()
 
         return {

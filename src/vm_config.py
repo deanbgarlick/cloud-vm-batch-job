@@ -13,6 +13,7 @@ class VMConfig:
     repo_url: str = os.getenv("REPO_URL", "")
     machine_type: str = os.getenv("DEFAULT_MACHINE_TYPE", "n1-standard-1")
     service_account: str = os.getenv("VM_RUNNER_SERVICE_ACCOUNT", "") + "@" + os.getenv("PROJECT_ID", "") + ".iam.gserviceaccount.com"
+    startup_script: str = "vm_shell_scripts/test-run-script.sh"
     source_image: str = "projects/ubuntu-os-cloud/global/images/family/ubuntu-2204-lts"
     disk_size_gb: int = 50
     preemptible: bool = True
