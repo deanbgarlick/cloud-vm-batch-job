@@ -1,13 +1,14 @@
-# How to use this repo
+## How to use this repo
 
 In order do the following:
-1. Set your choices for git repo url, regions, names of buckets, etc are in the project's .env file
-2. Run sh setup.sh
-3. Uncomment the line GOOGLE_APPLICATION_CREDENTIALS=./secrets/vm-orchestrator-sa-key.json in the .env file
-4. Run python -m main
+1. Create a GCP account and enable the required services (cloud engine, buckets, etc)
+2. Set your choices for git repo url, regions, names of buckets, etc are in the project's .env file
+3. Run sh setup.sh
+4. Uncomment the line GOOGLE_APPLICATION_CREDENTIALS=./secrets/vm-orchestrator-sa-key.json in the .env file
+5. Run python -m main
 
 
-# What this repo does
+## What this repo does
 
 This repo provides functionality for the following sequence of events:
 1. Configuring GCP for batch jobs (service account creation, bucket creation, network creation)
