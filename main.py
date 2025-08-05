@@ -13,7 +13,7 @@ def main():
     parser.add_argument('--name', default=None, help='VM name (auto-generated if not provided)')
     parser.add_argument('--machine-type', default='n1-standard-1', help='Machine type (default: n1-standard-1)')
     parser.add_argument('--startup-script', default='vm_shell_scripts/test-run-script.sh', help='Startup script (default: vm_shell_scripts/test-run-script.sh)')
-    parser.add_argument('--service-account', default=None, help='Service account email (default: uses environment ML_SERVICE_ACCOUNT or VM default)')
+    parser.add_argument('--service-account', default=None, help='Service account email (default: uses environment VM_RUNNER_SERVICE_ACCOUNT)')
     parser.add_argument('--no-preemptible', action='store_true', help='Disable preemptible instances (default: False)')
     parser.add_argument('--no-auto-shutdown', action='store_true', help='Disable auto-shutdown (default: False)')
     # New argument for example custom param
