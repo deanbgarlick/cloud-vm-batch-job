@@ -1,1 +1,1 @@
-sh 
+python -m main
