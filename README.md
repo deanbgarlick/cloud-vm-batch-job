@@ -1,6 +1,6 @@
 ## How to use this repo
 
-In order do the following:
+Do the following in order:
 1. Create a GCP account and enable the required services (cloud engine, buckets, etc)
 2. Set your choices for git repo url, regions, names of buckets, etc are in the project's .env file
 3. Run sh setup.sh
